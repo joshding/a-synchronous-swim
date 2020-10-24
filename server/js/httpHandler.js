@@ -24,10 +24,11 @@ var data;
 if(req.method === 'GET') {
 data =queue.dequeue();
 }
-//console.log('request object: ', req);
+console.log('response object: ', res);
 if(req.method === 'POST'){
   console.log(req.data);
 }
   res.end(data);
+// getFile(res._data)
   next(); // invoke next() at the end of a request to help with testing!
 };

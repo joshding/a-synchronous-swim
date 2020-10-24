@@ -6,5 +6,4 @@ $('body').on('keydown', (event) => {
     SwimTeam.move(direction.toLowerCase());
   }
 });
-
 console.log('Client is running in the browser!');
