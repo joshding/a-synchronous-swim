@@ -31,16 +31,16 @@ const getBackground =() => {
   contentType: false,
   processData: false,
   success: (image) => {
-    console.log('background success!!: ', image);
-    //attach an image tag to $(.pool).append(<img src = image />)
+    console.log('background success!!: ');
+    $('.background').css({'background-image': 'url(http://127.0.0.1:3000/background.jpg)'})
   },
   error: (data) => {
     console.log('error: ', data);
   }
 })}
 
-// setInterval(getCommand, 1000);
-//setInterval(getBackground, 5000);
+setInterval(getCommand, 1000);
+setInterval(getBackground, 5000);
 
 
 
@@ -74,15 +74,14 @@ const getBackground =() => {
     $.ajax({
       type: 'POST',
       data: formData,
-      url: serverUrl,
-
+      url: serverUrl ,
       cache: false,
       contentType: false,
       processData: false,
       success: (image) => {
         // reload the page
-        console.log('success!!!!', image)
-        //window.location = window.location.href;
+        console.log('file upload success!!!!', image)
+        window.location = window.location.href;
       }
     });
   };
