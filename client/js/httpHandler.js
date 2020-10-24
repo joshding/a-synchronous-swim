@@ -5,21 +5,61 @@
   //
   // TODO: build the swim command fetcher here
   //
-  setInterval(() => $.ajax({
-    type: 'GET',
-    url: serverUrl,
-    data: {name:'hi my name is Namsoo'},
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: (data) => {
-      //console.log('success!!: ', data);
-      SwimTeam.move(data);
-    },
-    error: (data) => {
-      console.log('error: ', data);
-    }
-  }), 1000)
+
+const getCommand = () => {
+  $.ajax({
+  type: 'GET',
+  url: serverUrl,
+  data: {},
+  cache: false,
+  contentType: false,
+  processData: false,
+  success: (data) => {
+    console.log('command success!!: ', data);
+    SwimTeam.move(data);
+  },
+  error: (data) => {
+    console.log('error: ', data);
+  }
+})}
+
+const getBackground =() => {
+  $.ajax({
+  type: 'GET',
+  url: serverUrl + '/background.jpg',
+  cache: false,
+  contentType: false,
+  processData: false,
+  success: (image) => {
+    console.log('background success!!: ', image);
+    //attach an image tag to $(.pool).append(<img src = image />)
+  },
+  error: (data) => {
+    console.log('error: ', data);
+  }
+})}
+
+// setInterval(getCommand, 1000);
+//setInterval(getBackground, 5000);
+
+
+
+
+  // setInterval(() => $.ajax({
+  //   type: 'GET',
+  //   url: serverUrl,
+  //   data: {name:'hi my name is Namsoo'},
+  //   cache: false,
+  //   contentType: false,
+  //   processData: false,
+  //   success: (data) => {
+  //     //console.log('success!!: ', data);
+  //     SwimTeam.move(data);
+  //   },
+  //   error: (data) => {
+  //     console.log('error: ', data);
+  //   }
+  // }), 1000)
 
 
   /////////////////////////////////////////////////////////////////////
@@ -39,9 +79,9 @@
       cache: false,
       contentType: false,
       processData: false,
-      success: () => {
+      success: (image) => {
         // reload the page
-        console.log('success!!!!')
+        console.log('success!!!!', image)
         //window.location = window.location.href;
       }
     });

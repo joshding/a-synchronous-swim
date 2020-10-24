@@ -1,5 +1,5 @@
 var parser = require('parse-multipart');
-
+// gets the boundary of the picture
 module.exports.getBoundary = function(buffer) {
   var finder = /--(----\w+)\b/;
   var boundary = buffer.toString().match(finder);
